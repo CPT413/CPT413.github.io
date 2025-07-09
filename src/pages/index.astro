@@ -1,16 +1,384 @@
 ---
-
+import Header from '../components/header.astro';
+import Footer from '../components/footer.astro';
+import { Carousel } from 'webcoreui/astro'
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width"/>
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Premier Outdoor Lighitng Experts</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<Header></Header>
+		<section id="home">
+			<h2>Bringing cheer without the hassle</h2>
+			<a href="mailto:example@test.com?subject=Free Lighting Quote" id='email' class="cta-button">Get a free estimate</a>
+			<br>
+			<!--<a href="tel:+15707900243" id="phone">(570) 790-0243</a>-->
+			<a href="tel:" id="phone">(570) 790-0243</a>
+			<!-- 
+			<p>We specialize in creating stunning outdoor spaces with our expert lighting services.</p>
+			<a href="/services" class="cta-button">Explore Our Services</a>-->
+		</section>
+		<section id="about-section">
+			<h2 id="about-title">About Bright Horizon's Exterior Lighting</h2>
+			<div id="about">
+			<div id ="about-img">
+				<img src="/House-with-lights-in-snow.jpeg" alt="About Us" />
+			</div>
+			<div id ="about-text">
+				<h3 id="mission-title">Our Mission</h3>
+				<p id="mission-text">At Bright Horizon’s Exterior Lighting we specialize in professional holiday lighting installation for homes and businesses. From elegant white lights to bold, custom displays, we handle every step—from design and setup to takedown and storage—so you can enjoy a stress-free holiday season. Serving Bloomsburg and surrounding communities, we’re committed to quality, safety, and creating eye-catching displays that bring festive cheer to your property.</p>
+			</div>
+		</div>
+			
+		</section>
+		<br>
+		<section id="photos">
+			<h2>Gallery</h2>
+			<p>Check out some of our recent projects to see the difference we can make.</p>
+			<div id="gallery">
+				<Carousel items={3} pagination={{type: null, showChevrons: true}}>
+				<li><img src="/house-and-trees-with-lights.jpg"  height="auto" alt="Project 1" /></li>
+				<li><img src="/IMG_1009.jpeg"  height="auto" alt="Project 1" /></li>
+				<li><img src="/IMG_1100.jpeg"  height="auto" alt="Project 1" /></li>
+				<li><img src="/IMG_1110.jpeg"  height="auto" alt="Project 1" /></li>
+			</Carousel>
+			</div>
+			<!--
+			<p>For more photos, visit our <a href="/gallery">Gallery</a> page.</p>
+			 -->
+		</section>
+		<section id="testimonials">
+			<h2>Don't just take our word, see what past costumers have to say!</h2>
+			<blockquote>
+				<p>"Bright Horizon's transformed our backyard into a magical space. Their team was professional and the results were stunning!"</p>
+				<cite>- Sarah L.</cite>
+			</blockquote>
+			<blockquote>
+				<p>"We couldn't be happier with the outdoor lighting installation. It has made our home so much more inviting!"</p>
+				<cite>- John D.</cite>
+			</blockquote>
+			<!--<p>Read more testimonials on our <a href="/testimonials">Testimonials</a> page.</p>-->
+		</section>
+		<h2 style="text-align: center;">Contact Us</h2>
+		<section id="contact">
+			<form action="/submit-form" method="POST" id="contact-form">
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name" class="required" required />
+				<br>
+				<label for="email input">Email:</label>
+				<input type="email" id="email-input" name="email" class="required" required />
+				<br>
+				<label for="phone input">Phone:</label>
+				<input type="tel" id="phone-input" name="phone"/>
+				<br>
+				<label for="source">How did you hear about us?</label>
+				<div id="source">
+					<label>
+					  <input type="radio" name="source" value="google" required/> Google
+					</label>
+					<label>
+					  <input type="radio" name="source" value="social_media" /> Social Media
+					</label>
+					<label>
+					  <input type="radio" name="source" value="referral" /> Referral
+					</label>
+					<label>
+					  <input type="radio" name="source" value="other" /> Other
+					</label>
+				  </div>
+				<br>
+				<label for="message">Message:</label>
+				<br>
+				<textarea id="message" name="message" rows="4" class="required" required>Let us know the details of what you are looking for, and we will contact you with a quote</textarea>
+				<br>
+				<label for="file-input">Upload a file (optional):</label>
+				<input type="file" id="file-input" name="file" />
+				<br>
+				<button type="submit">Submit</button>
+				<p style="font-size: 0.8em;">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy"> Privacy Policy </a>and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
+			</form>
+			<div id="business-info">
+			<h2>Better yet, see us in person!</h2>
+			<p>We stay in constant communication with our customers until the job is done. To get a free quote, or if you have questions or special requests, just drop us a line.</p>
+			<h2>Bright Horizon's Exterior Lighting</h2>
+			<p>1234 Bright St, Bloomsburg, PA 17815</p>
+			<h3>Hours</h3>
+			<p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+			<p>We look forward to working with you to create the perfect outdoor lighting solution.</p>
+		</div>
+		</section>
+		<Footer></Footer>
 	</body>
 </html>
+<style>
+	* {
+  box-sizing: border-box;
+}
+section {
+	width: 100%;
+	max-width: 100vw;
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+	body {
+		margin: 0;
+	padding: 0;
+	width: 100%;
+	max-width: 100vw;
+		background-image: url('/tree-lights.png');
+		background-repeat: no-repeat;
+		background-color: rgba(255,255,255,0.5);
+		background-blend-mode: lighten;
+		overflow-x: hidden;
+		box-sizing: border-box;
+	}
+	html{
+		margin: 0;
+	padding: 0;
+	width: 100%;
+	max-width: 100vw;
+	overflow-x: hidden;
+	box-sizing: border-box;
+	}
+	h2{
+		color: rgb(29,59,31)
+	}
+	#home {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		background-color: rgba(255,255,255,0.5);
+		padding: 10px;
+		text-align: center;
+	}
+	
+	#phone {
+		width: 200px;
+		text-decoration: none;
+		border: black solid 1px;
+		padding: 10px;
+		border-radius: 10px;
+		margin: auto;
+	}
+	#phone:hover {
+		color: #ff6600;
+		background-color: aqua;
+		text-decoration: none;
+	}
+	#email {
+		width: 300px;
+		text-decoration: none;
+		border: black solid 1px;
+		padding: 10px;
+		border-radius: 10px;
+		margin: auto;
+  }
+	#email:hover {
+		text-decoration: none;
+		color: #ff6600;
+		background-color: aqua;
+	}
+	#about-section {
+		padding: 10px;
+		max-width: 100%; /* Limits the width of the section */
+	}
+	#about-title {
+		font-size: 2.2em;
+		color: rgb(29,59,31);
+		text-align: center;
+	}
+	#about {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		padding: auto;
+		text-align: center;
+	}
+
+	#about-img img{
+		margin-right: 20px; /* Adds spacing between the image and text */
+		width: 100%;
+		max-width: 700px;
+		min-width: 300px;
+		height: auto; /* Maintains aspect ratio */
+		object-fit: cover; /* Ensures the image covers the area without distortion */
+		flex-shrink: 1;
+			}
+	#about-text {
+		flex-shrink: 2;
+		padding: 20px;
+		max-width: 50%;
+		font-size: 1.2em;
+		color: #333;
+		line-height: 1.6em; /* Improves readability */
+		text-align: justify; /* Justifies the text for better readability */
+		overflow: hidden; /* Prevents overflow issues */
+	}
+	
+	#mission-title {
+		font-size: 1.8em;
+		color: rgb(29,59,31);
+		text-align: center;
+		margin-top: 20px;
+	}
+	#mission-text {
+		font-size: 1.5em;
+		color: #333;
+		text-align: center; /* Justifies the text for better readability */
+		overflow: hidden; /* Prevents overflow issues */
+
+	}
+	#photos {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		background-color: rgba(255,255,255,0.5);
+		padding: 10px;
+		text-align: center;
+	}
+	#gallery img {
+		width: 50%;
+		height: auto;
+
+	}
+	#testimonials {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		background-color: rgba(255,255,255,0.5);
+		padding: 10px;
+		text-align: center;
+	}
+	#contact {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			padding: 10px;
+			text-align: center;
+	}
+	#contact-form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		margin: auto;
+		flex-basis: 30%;
+		padding: 20px;
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	}
+	#business-info {
+		display: flex;
+		margin-top: 20px;
+		flex-direction: column;
+		align-items: center;
+		width: 50%;
+		font-size: 1.2em;
+		color: #333;
+		text-align: center;
+	}
+	#name, #phone-input, #email-input{
+		width: 100%;
+		max-width: 300px;
+		padding: 10px;
+		margin-bottom: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		font-size: 1em;
+	}
+	label{
+		font-size: 1.1em;
+		margin-bottom: 5px;
+		display: block; /* Ensures labels are on their own line */
+	}
+	#message {
+		width: 100%;
+		max-width: 400px;;
+		height: auto;
+		padding: 10px;
+		margin-bottom: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		font-size: 1em;
+		resize: vertical; /* Allows vertical resizing */
+	}
+	button{
+		background-color: #4CAF50; /* Green background */
+		color: white; /* White text */
+		border: none; /* No border */
+		padding: 10px 20px; /* Some padding */
+		text-align: center; /* Centered text */
+		text-decoration: none; /* No underline */
+		display: inline-block; /* Inline-block display */
+		font-size: 1em; /* Font size */
+		margin-top: 10px; /* Margin on top */
+		border-radius: 5px; /* Rounded corners */
+		cursor: pointer; /* Pointer cursor on hover */
+	}
+	button:hover {
+		background-color: #45a049; /* Darker green on hover */
+	}
+
+	.required:after {
+    content:" *";
+    color: red;
+  }
+  
+  @media screen and (max-width: 800px) {
+  #about {
+    flex-direction: column;
+  }
+
+  #about-img,
+  #about-text {
+    max-width: 100%;
+    margin-right: 0;
+  }
+  #contact {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+	#contact-form{
+		width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: visible;
+	}
+  #business-info {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+  #message {
+    width: 100%;
+    max-width: 400px;
+
+  }
+  #name,
+  #phone-input,
+  #email-input {
+	width: 100%;
+    max-width: 300px;
+  }
+}
+	
+</style>
