@@ -1,10 +1,8 @@
 ---
-//basic header component
+import { Image } from 'astro:assets';
 ---
 <header>
-    <h1>Bright Horizon's Exterior Lighting</h1>
-    <section id="page-header">
-
+    <div id="page-header">
     <nav id="main-nav">
         <ul>
             <li><a href="/">Home</a></li>
@@ -13,39 +11,31 @@
         </ul>
     </nav>
     <div id="logo">
-        <h1>Bright Horizon's Exterior Lighting</h1><img src="/logo.jpg" alt="Bright Horizon's Exterior Lighting Logo" />
+    <Image src="/logo.jpg" width="400" height="300" alt="Bright Horizon's Exterior Lighting Logo" loading="eager" fetchpriority='high'/>
     </div>
     <nav id="secondary-nav">
         <ul>
-            <li><a href="/services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        
-        
-    </nav>   
+    </nav>    
     <div id='small-menu'>
-            <a href="/">Home</a>
-            <a href="#about">About</a>
-            <a href="#gallery">Gallery</a>
-            <a href="/services">Services</a>
-            <a href="#contact">Contact</a>
-        </div>      
-</section>
+        <a href="/">Home</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+    </div>       
+</div>
 </header>
 <style>
-    h1{
-        text-indent: -9999px; /* Hides the text but keeps it accessible for screen readers */
-        font-size: 0; /* Hides the text visually */
-        margin: 0; /* Removes default margin */
-    }
+    
 
     header {
         position: sticky;
         top: 0;
-        width: 100%;
-        padding: 10px;
-        margin: auto;
         background-color: rgba(255,255,255,1);
+        z-index: 9999;
     }
 
 
@@ -55,12 +45,12 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        margin: auto;
     }
     #main-nav{
         display: inline-flex;
 
     }
+
     #secondary-nav{
         display: inline-flex;
     }
@@ -80,7 +70,7 @@
         padding: 0;
         margin: 0;
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px;
 
     }
@@ -94,13 +84,12 @@
         text-decoration: none;
         color: black;
     }
-    nav li a:hover{
-        color: rgb(242,	196, 86);
+    nav li a:hover {
+        color: rgb(242, 196, 86);
     }
     #small-menu {
-        display: none;
+        display: none; /* Hidden by default, shown on small screens */
     }
-
 
 @media only screen and (max-width: 700px) {
 #main-nav, #secondary-nav {

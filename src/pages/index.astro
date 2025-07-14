@@ -2,21 +2,30 @@
 import Header from '../components/header.astro';
 import Footer from '../components/footer.astro';
 import { Carousel } from 'webcoreui/astro'
+import { Image } from 'astro:assets';
 ---
-
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width"/>
 		<meta name="generator" content={Astro.generator} />
-		<title>Premier Outdoor Lighitng Experts</title>
+		<title>Holiday Lighting in Bloomsburg PA | Bright Horizon’s</title>
+		<meta name="description" content="Professional exterior Christmas lighting services in Bloomsburg, PA. Let Bright Horizon's light up your holidays with expert design and installation." />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Bright Horizon's Exterior Lighting" />
+		<meta property="og:description" content="Exterior Christmas lighting experts in Bloomsburg, PA. Design, install, and dazzle your neighborhood!" />
+		<meta property="og:image" content="https://yourdomain.com/images/social-preview.jpg" />
+		<meta property="og:url" content="https://your-domain.com" />
+		<link rel="canonical" href="https://yourdomain.com/" />
+		<meta property="article:author" content="https://www.facebook.com/BrightHorizonsLightingLLC" />
 	</head>
 	<body>
 		<Header></Header>
+		
 		<section id="home">
-			<h2>Bringing cheer without the hassle</h2>
-			<a href="mailto:example@test.com?subject=Free Lighting Quote" id='email' class="cta-button">Get a free estimate</a>
+			<h1>Bringing Cheer to Bloomsburg with Custom Holiday Lighting</h1>
+			<h2>Holidays without the hassle</h2>
+			<a href="mailto:example@test.com?subject=Free Lighting Quote" id='email' class="cta-button">Get your free estimate!</a>
 			<br>
 			<!--<a href="tel:+15707900243" id="phone">(570) 790-0243</a>-->
 			<a href="tel:" id="phone">(570) 790-0243</a>
@@ -28,11 +37,11 @@ import { Carousel } from 'webcoreui/astro'
 			<h2 id="about-title">About Bright Horizon's Exterior Lighting</h2>
 			<div id="about">
 			<div id ="about-img">
-				<img src="/House-with-lights-in-snow.jpeg" alt="About Us" />
+				<Image src="/House-with-lights-in-snow.jpeg" alt="House with Christmas Lights" width="400" height="400" loading="eager" fetchpriority='high' />
 			</div>
 			<div id ="about-text">
 				<h3 id="mission-title">Our Mission</h3>
-				<p id="mission-text">At Bright Horizon’s Exterior Lighting we specialize in professional holiday lighting installation for homes and businesses. From elegant white lights to bold, custom displays, we handle every step—from design and setup to takedown and storage—so you can enjoy a stress-free holiday season. Serving Bloomsburg and surrounding communities, we’re committed to quality, safety, and creating eye-catching displays that bring festive cheer to your property.</p>
+				<p id="mission-text">At Bright Horizon’s Exterior Lighting we specialize in professional holiday lighting installation for homes and businesses. From elegant white lights to bold, custom displays, we handle every step—from design and setup to takedown and storage—so you can enjoy a stress-free holiday season. Serving Bloomsburg, Danville, Berwick, and surrounding communities in Columbia County, we’re committed to quality, safety, and creating eye-catching displays that bring festive cheer to your property.</p>
 			</div>
 		</div>
 			
@@ -43,10 +52,10 @@ import { Carousel } from 'webcoreui/astro'
 			<p>Check out some of our recent projects to see the difference we can make.</p>
 			<div id="gallery">
 				<Carousel items={3} pagination={{type: null, showChevrons: true}}>
-				<li><img src="/house-and-trees-with-lights.jpg"  height="auto" alt="Project 1" /></li>
-				<li><img src="/IMG_1009.jpeg"  height="auto" alt="Project 1" /></li>
-				<li><img src="/IMG_1100.jpeg"  height="auto" alt="Project 1" /></li>
-				<li><img src="/IMG_1110.jpeg"  height="auto" alt="Project 1" /></li>
+				<li><Image src="/house-and-trees-with-lights.jpg"  width="400"height="400" alt="Festively decorated home with outdoor Christmas lights in Bloomsburg, Pennsylvania" loading="lazy"/></li>
+				<li><Image src="/IMG_1009.jpeg"  width="400"height="300" alt="Exterior holiday lighting display on residential house in Bloomsburg PA" loading="lazy"/></li>
+				<li><Image src="/IMG_1100.jpeg"  width="400"height="300" alt="Bloomsburg PA home glowing with custom Christmas light installation" loading="lazy"/></li>
+				<li><Image src="/IMG_1110.jpeg"  width="400"height="300" alt="Cheerful house with LED Christmas lights in Columbia County" loading="lazy"/></li>
 			</Carousel>
 			</div>
 			<!--
@@ -67,7 +76,7 @@ import { Carousel } from 'webcoreui/astro'
 		</section>
 		<h2 style="text-align: center;">Contact Us</h2>
 		<section id="contact">
-			<form action="/submit-form" method="POST" id="contact-form">
+			<form action="/submit-form" method="POST" id="contact-form" enctype="multipart/form-data">
 				<label for="name">Name:</label>
 				<input type="text" id="name" name="name" class="required" required />
 				<br>
@@ -125,6 +134,7 @@ section {
 	max-width: 100vw;
 	overflow-x: hidden;
 	box-sizing: border-box;
+	overflow-y: visible;
 }
 img {
 	max-width: 100%;
@@ -141,6 +151,7 @@ img {
 		background-blend-mode: lighten;
 		overflow-x: hidden;
 		box-sizing: border-box;
+		overflow-y: auto;
 	}
 	html{
 		margin: 0;
@@ -148,10 +159,17 @@ img {
 	width: 100%;
 	max-width: 100vw;
 	overflow-x: hidden;
+	overflow-y: auto;
 	box-sizing: border-box;
 	}
 	h2{
 		color: rgb(29,59,31)
+	}
+	p{
+		color: rgba(0, 0, 0, 1);
+		font-size: 1.3em;
+		line-height: 1.5em; /* Improves readability */
+		margin: 10px 0; /* Adds spacing between paragraphs */
 	}
 	#home {
 		display: flex;
@@ -164,29 +182,35 @@ img {
 	
 	#phone {
 		width: 200px;
+		font-size: 1.3em;
 		text-decoration: none;
 		border: black solid 1px;
+		background-color: rgba(29,59,31, 0.8);
+		color: rgba(255,255,255,1);
 		padding: 10px;
 		border-radius: 10px;
 		margin: auto;
 	}
 	#phone:hover {
-		color: #ff6600;
-		background-color: aqua;
+		color: rgba(0, 0, 0, 1);
+		background-color:  rgba(0, 0, 0, 0.1);
 		text-decoration: none;
 	}
 	#email {
 		width: 300px;
+		font-size: 1.3em;
 		text-decoration: none;
 		border: black solid 1px;
+		background-color: rgba(29,59,31, 0.8);
+		color: rgba(255,255,255,1);
 		padding: 10px;
 		border-radius: 10px;
 		margin: auto;
   }
 	#email:hover {
 		text-decoration: none;
-		color: #ff6600;
-		background-color: aqua;
+		color: rgba(0, 0, 0, 1);
+		background-color: rgba(0, 0, 0, 0.1);
 	}
 	#about-section {
 		padding: 10px;
@@ -235,7 +259,7 @@ img {
 	}
 	#mission-text {
 		font-size: 1.5em;
-		color: #333;
+		color: rgba(0, 0, 0, 1);
 		text-align: center; /* Justifies the text for better readability */
 		overflow: hidden; /* Prevents overflow issues */
 
@@ -317,7 +341,7 @@ img {
 	}
 	button{
 		background-color: #4CAF50; /* Green background */
-		color: white; /* White text */
+		color: black; /* White text */
 		border: none; /* No border */
 		padding: 10px 20px; /* Some padding */
 		text-align: center; /* Centered text */
@@ -336,7 +360,7 @@ img {
     content:" *";
     color: red;
   }
-  
+
   @media screen and (max-width: 800px) {
   #about {
     flex-direction: column;
@@ -347,6 +371,11 @@ img {
     max-width: 100%;
     margin-right: 0;
   }
+  #gallery img {
+		width: 100%;
+		height: auto;
+
+	}
   #contact {
     display: flex;
     flex-direction: column;
@@ -382,3 +411,20 @@ img {
 }
 	
 </style>
+<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "LocalBusiness",
+	  "name": "Bright Horizon's Exterior Lighting",
+	  "address": {
+		"@type": "PostalAddress",
+		"addressLocality": "Bloomsburg",
+		"addressRegion": "PA",
+		"postalCode": "17815",
+		"addressCountry": "US"
+	  },
+	  "telephone": "123-456-7890",
+	  "url": "https://your-domain.com",
+	  "description": "Exterior Christmas lighting experts in Bloomsburg, PA. We design, install, and maintain holiday lights for homes and businesses."
+	}
+	</script>
